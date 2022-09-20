@@ -7,9 +7,9 @@ const scoreboard = document.getElementById('scoreboard');
 const resultDisplay = document.getElementById('result-display');
 const playerHP = document.getElementById('player-hp');
 const playerImage = document.getElementById('player-image');
-// const addWitchForm = document.getElementById('add-witch-form');
+const addWitchForm = document.getElementById('add-witch-form');
 const witchList = document.getElementById('witch-list');
-// const removeButton = document.getElementById('remove-button');
+const removeButton = document.getElementById('remove-button');
 
 
 /* State */
@@ -39,7 +39,7 @@ let witches = [
     },
 ];
 
-//witch types
+// witch types
 const witch = {
     type: 'witch',
     hp: 3,    
@@ -59,9 +59,32 @@ const witchTypes = [
     wizard,
     wizard,
     wizard,
-]
+];
 
 /* Events */
+addWitchForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const witchType = getRandomItem(witchTypes);
+
+    const witch = {
+        name: FormData.get('name'),
+        type: witchType.type,
+        hp: witchType.hp,
+    };
+    witches.push(witch);
+});
+
+removeButton.addEventListener('click', () => {
+    const alive = [];
+
+    for (const witch of witches) {
+        if (witch.hp > 0) {
+            alive.push(witch);
+        }
+    }
+    witches = alive;
+    displayWitches();
+});
 
 
 /* Display Functions */
