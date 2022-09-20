@@ -1,13 +1,16 @@
 /* Imports */
+import { renderWitch } from './render-utils.js';
+import { getRandomItem } from './utils.js';
 
 /* Get DOM Elements */
 const scoreboard = document.getElementById('scoreboard');
 const resultDisplay = document.getElementById('result-display');
 const playerHP = document.getElementById('player-hp');
 const playerImage = document.getElementById('player-image');
-const addWitchForm = document.getElementById('add-witch-form');
+// const addWitchForm = document.getElementById('add-witch-form');
 const witchList = document.getElementById('witch-list');
-const removeButton = document.getElementById('remove-button');
+// const removeButton = document.getElementById('remove-button');
+
 
 /* State */
 let player = {
@@ -15,29 +18,48 @@ let player = {
     type: 'player',
 };
 
+let result = '';
+let defeated = 0;
+
 let witches = [
     {
-        name: 'Winifred'
-        type: 'Witch'
+        name: 'Winifred',
+        type: 'Witch',
         hp: 2,
     },
     {
-        name: 'Sarah'
-        type: 'Witch'
+        name: 'Sarah',
+        type: 'Witch',
         hp: 3,
     },
     {
-        name: 'Mary'
-        type: 'Witch'
+        name: 'Mary',
+        type: 'Witch',
         hp: 4,
     },
 ];
 
-// witch types
+//witch types
 const witch = {
     type: 'witch',
-    hp: 3,
+    hp: 3,    
 };
+
+const wizard = {
+    type: 'wizard',
+    hp: 2,
+};
+
+const playerAttacks = [0, 1, 1, 2, 2, 3, 3, 4, 4];
+const witchAttacks = [0, 0, 1, 1, 2, 2, 3];
+const witchTypes = [
+    witch, 
+    witch, 
+    witch, 
+    wizard,
+    wizard,
+    wizard,
+]
 
 /* Events */
 
@@ -73,10 +95,36 @@ function displayWitches() {
                 displayResult();
                 return;
             }
+            const playerAttack = getRandomItem(playerAttacks);
+            const witchAttack = getRandomItem(witchAttacks);
+
+            player.hp = Math.max(0, player.hp - witchAttack);
+            witch.hp = Math.max(0, witch.hp - playerAttack);
+
+            result = '';
+            if (playerAttack === 0) {
+                result += 'Your spell failed.';
+            } else {
+                result += `It worked! You beat ${witch.name} and did ${playerAttack} in damage. `;
+            }
+
+            if (witchAttack === 0) {
+                result += `${witch.name}'s spell failed.`;
+            } else {
+                result += `${witch.name}'s spell was successful and and did ${witchAttack} in damage.`;
+            }
+
+            if (witch.hp < 1) {
+                defeated++;
+                displayScoreboard();
+            }
+
+            displayResult();
+            displayPlayer();
+            displayWitches();
 
 
-
-        })
+        });
     }
 }
 
