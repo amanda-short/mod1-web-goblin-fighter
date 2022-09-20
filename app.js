@@ -1,6 +1,7 @@
 /* Imports */
 
 /* Get DOM Elements */
+const score
 
 /* State */
 

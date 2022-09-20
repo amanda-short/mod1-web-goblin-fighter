@@ -34,8 +34,9 @@
 
 .player img {
     width: 100%;
-}
+} */
 
-/* #witch-list {
-    width: 100px; */
+.banner {
+    display:grid;
+    place-content: center;
 }
