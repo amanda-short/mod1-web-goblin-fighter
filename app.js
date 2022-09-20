@@ -64,14 +64,22 @@ const witchTypes = [
 /* Events */
 addWitchForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    const formData = new FormData(addWitchForm);
     const witchType = getRandomItem(witchTypes);
 
     const witch = {
-        name: FormData.get('name'),
+        name: formData.get('name'),
         type: witchType.type,
         hp: witchType.hp,
     };
     witches.push(witch);
+
+    result = `${witch.name} the ${witch.type} has joined the fight`;
+
+    displayWitches();
+    displayResult();
+
+    addWitchForm.reset();
 });
 
 removeButton.addEventListener('click', () => {
@@ -93,15 +101,15 @@ function displayResult() {
 }
 
 function displayScoreboard() {
-    scoreboard.textContent = 'Your spells worked! You defeated ${defeated} witches!';
+    scoreboard.textContent = `Your spells worked! You defeated ${defeated} witches!`;
 }
 
 function displayPlayer() {
     playerHP.textContent = Math.max(0, player.hp);
     if (player.hp < 1) {
-        playerImage.src = '/assets/witch1.png';
+        playerImage.src = '/assets/dead.png';
     } else {
-        playerImage.src = '/assets/witch2.png';
+        playerImage.src = '/assets/player.png';
     }
 }
 
