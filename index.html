@@ -9,7 +9,7 @@
 
     <!-- title and favicon -->
     <title>Web App</title>
-    <link rel="icon" type="image/x-icon" href="assets/alchemy-favicon.png" />
+    
 
     <!-- js -->
     <script type="module" src="app.js"></script>
@@ -20,18 +20,50 @@
     <!-- css -->
     <link rel="stylesheet" href="styles/reset.css" />
     <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/witch.css" />
     <!-- add link for page specific css -->
 
 </head>
 
 <body>
     <header>
-        <img class="logo" src="assets/html_css_js.png" alt="logo">
-        <h1>Web App</h1>
+        <img class="logo" src="/assets/page logo.png" alt="logo">
+        <h1>Spell Master Challenge</h1>
     </header>
-
     <main>
-
+        <section class="player card">
+            <p id="player-hp" class="stat">0</p>
+            <img id="player-image" src="/assets/witch1.png">
+        </section>
+        <section class="witch-section">
+            <form id="add-witch-form">
+                <label>
+                    <div>New Spell Master</div>
+                    <div class="controls">
+                        <input name="name" required>
+                        <button>+</button>
+                    </div>
+                </label>
+            </form> 
+            <ul id="witch-list">
+                <li class="witch card">
+                    <span class="stat">2</span>
+                    <img alt="witch2" src="/assets/witch2.png">
+                    <span class="name">Winifred</span>    
+                </li>
+                <li class="witch card">
+                    <span class="stat">3</span>
+                    <img alt="witch3" src="/assets/witch3.png">
+                    <span class="name">Sarah</span>    
+                </li>
+                <li class="witch card">
+                    <span class="stat">4</span>
+                    <img alt="witch4" src="/assets/witch4.png">
+                    <span class="name">Mary</span>    
+                </li>
+            </ul> 
+            <button id="remove-button">Remove Unworthy Witches</button>  
+        </section>
     </main>
 
 </body>
