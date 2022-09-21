@@ -8,12 +8,9 @@
 body {
     font-family: var(--primary-font);
     background: var(--background);
-    display: flex;
 }
 
 header {
-    position: sticky;
-    top: 0;
     padding: 15px;
     height: 80px;
     width:fit-content;
@@ -32,4 +29,16 @@ header .logo {
 
 main {
     padding: 10px;
+    display: grid;
+    grid-template-rows: 35% 35% 15% 15%;
+}
+
+main > * {
+    border: 2px solid red;
+}
+
+#witch-list {
+    display: flex;
+    justify-content: space-around;
+    align-items:flex-end;
 }

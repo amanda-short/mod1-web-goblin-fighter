@@ -31,11 +31,7 @@
         <h1>Spell Master Challenge</h1>
     </header>
     <main>
-        <section class="player card">
-            <p id="player-hp" class="stat">10</p>
-            <img id="player-image" src="/assets/witch1.png">
-        </section>
-        <section class="witch-section">
+        <section class="top-row"> 
             <form id="add-witch-form">
                 <label>
                     <div>New Spell Master</div>
@@ -45,6 +41,12 @@
                     </div>
                 </label>
             </form> 
+            <div class="player card">
+                <p id="player-hp" class="stat">10</p>
+                <img id="player-image" src="/assets/witch1.png">
+            </div>
+        </section>
+        <section class="witch-section">
             <ul id="witch-list">
                 <li class="witch card">
                     <span class="stat">2</span>
@@ -62,11 +64,12 @@
                     <span class="name">Mary</span>    
                 </li>
             </ul> 
-            <button id="remove-button">Remove Unworthy Witches</button>  
         </section>
-    </section>
-    <section class="banner" id="result-display"> Click a witch or wizard to test your skills </section>
-    <section class="banner" id="scoreboard"> Your spells are weak, try again!</section>
+        <section>
+            <div class="banner" id="result-display"> Click a witch or wizard to test your skills </div>
+            <div class="banner" id="scoreboard"> Your spells are weak, try again!</div>
+        </section>
+        <button id="remove-button">Remove Unworthy Witches</button>  
     </main>
 
 </body>
