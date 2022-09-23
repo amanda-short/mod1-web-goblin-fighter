@@ -9,9 +9,9 @@ export function renderWitch(witch) {
     const image = document.createElement('img');
     image.alt = witch.type;
     if (witch.hp < 1) {
-        image.src = `./assets/witch2.png`;
+        image.src = `./assets/flames.png`;
     } else {
-        image.src = `./assets/${witch}.png`;
+        image.src = `./assets/${witch.type}.png`;
     }
 
     const name = document.createElement('span');

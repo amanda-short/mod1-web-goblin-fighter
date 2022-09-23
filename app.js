@@ -24,17 +24,17 @@ let defeated = 0;
 let witches = [
     {
         name: 'Winifred',
-        type: 'Witch',
+        type: 'witch2',
         hp: 2,
     },
     {
         name: 'Sarah',
-        type: 'Witch',
+        type: 'witch3',
         hp: 3,
     },
     {
         name: 'Mary',
-        type: 'Witch',
+        type: 'witch4',
         hp: 4,
     },
 ];
@@ -107,7 +107,7 @@ function displayScoreboard() {
 function displayPlayer() {
     playerHP.textContent = Math.max(0, player.hp);
     if (player.hp < 1) {
-        playerImage.src = '/assets/dead.png';
+        playerImage.src = './assets/dead.png';
     } else {
         playerImage.src = './assets/player.png';
     }
