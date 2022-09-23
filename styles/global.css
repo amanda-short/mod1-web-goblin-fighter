@@ -1,6 +1,6 @@
 :root {
-    --background: rgb(224, 234, 247);
-    --header-background: rgb(254, 251, 245);
+    --background: rgb(250, 250, 251);
+    --header-background: rgb(213, 203, 0);
     --primary-font: Corbel, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans',
         'Bitstream Vera Sans', 'Liberation Sans', Verdana, 'Verdana Ref', sans-serif;
 }
@@ -8,28 +8,41 @@
 body {
     font-family: var(--primary-font);
     background: var(--background);
-    display: grid;
-    grid-template-rows: auto 1fr;
 }
 
 header {
-    position: sticky;
-    top: 0;
-    padding: 15px;
-    height: 80px;
-
     display: flex;
     align-items: center;
     gap: 10px;
-
-    background-color: var(--header-background);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    flex-grow: 2;
+    background-color: rgb(202, 196, 15);
 }
 
 header .logo {
-    height: 100%;
+    height: 60px;
+    padding-left: 10px;
 }
 
 main {
-    padding: 20px;
+    /* padding: 10px; */
+    display: grid;
+    grid-template-rows: auto auto auto;
+    height: max-content;
+    border: 5px solid rgb(202, 196, 15)
+    
+}
+
+/* main > * {
+    border: 5px solid rgb(202, 196, 15);
+} */
+
+.top-row {
+    display: grid;
+    
+}
+
+#witch-list {
+    display: flex;
+    justify-content: space-around;
+    align-items:flex-end;
 }
