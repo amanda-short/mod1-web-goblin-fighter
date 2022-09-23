@@ -1,6 +1,6 @@
 export function renderWitch(witch) {
     const li = document.createElement('li');
-    li.classList.add('witch', 'card');
+    li.classList.add('witch');
 
     const hp = document.createElement('span');
     hp.classList.add('stat');
@@ -9,9 +9,9 @@ export function renderWitch(witch) {
     const image = document.createElement('img');
     image.alt = witch.type;
     if (witch.hp < 1) {
-        image.src = `/assets/witch2.png`;
+        image.src = `./assets/witch2.png`;
     } else {
-        image.src = `assets/${witch}.png`;
+        image.src = `./assets/${witch}.png`;
     }
 
     const name = document.createElement('span');
