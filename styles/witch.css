@@ -83,6 +83,7 @@ remove-button {
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px rgb(1, 1, 1);
+    
 }
 
 remove-button:hover {background-color: #010101}
