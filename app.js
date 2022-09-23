@@ -109,7 +109,7 @@ function displayPlayer() {
     if (player.hp < 1) {
         playerImage.src = '/assets/dead.png';
     } else {
-        playerImage.src = '/assets/player.png';
+        playerImage.src = './assets/player.png';
     }
 }
 
